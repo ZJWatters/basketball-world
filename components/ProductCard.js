@@ -4,17 +4,23 @@ import { useState } from 'react'
 
 export default function ProductCard({ product }) {
   const [isLoading, setLoading] = useState(true)
+
   function cn(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+
+  // Safely access options and values
+  const optionName =
+    product.options?.[0]?.values?.[0]?.name || 'N/A' // Fallback to 'N/A' if undefined
+
   return (
     <Link href={`/products/${product.id}`} className="group">
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
         <Image
           alt=""
-          src={product.images[0].file.url}
+          src={product.images?.[0]?.file?.url || '/placeholder.png'} // Fallback to a placeholder image
           fill
-          objectFit="cover"
+          style={{ objectFit: 'cover' }} // Replace legacy `objectFit` with `style`
           className={cn(
             'duration-700 ease-in-out group-hover:opacity-75',
             isLoading
@@ -29,7 +35,7 @@ export default function ProductCard({ product }) {
         <p>${product.price}</p>
       </div>
       <p className="mt-1 text-sm italic text-gray-500">
-        {product.options[0].values[0].name} calories
+        {optionName} Size
       </p>
     </Link>
   )

@@ -4,11 +4,11 @@ import Header from '../components/Header'
 import { useRef } from 'react'
 
 export default function Gallery({ data }) {
-  let coffeeRef = useRef()
+  let basketballRef = useRef()
 
   const scrollHandler = (e) => {
     e.preventDefault()
-    coffeeRef.scrollIntoView({
+    basketballRef.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     })
@@ -22,7 +22,7 @@ export default function Gallery({ data }) {
           <div className="text-center">
             <p
               className="mt-1 text-4xl font-bold uppercase text-gray-900 sm:text-5xl sm:tracking-tight lg:text-5xl"
-              ref={(element) => (coffeeRef = element)}
+              ref={(element) => (basketballRef = element)}
             >
               Crafted by us, for you
             </p>
