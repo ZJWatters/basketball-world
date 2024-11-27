@@ -17,16 +17,16 @@ export default function Product({ product }) {
     }
 
     await swell.cart.setItems([]) // Clear existing items
-    await swell.cart.addItem({
-      product_id: productId,
-      quantity: 1,
-      options: [
-        {
-          name: 'Size',
-          value: selectedSize,
-        },
-      ],
-    })
+    // await swell.cart.addItem({
+    //   product_id: productId,
+    //   quantity: 1,
+    //   options: [
+    //     {
+    //       name: 'Size',
+    //       value: selectedSize,
+    //     },
+    //   ],
+    // })
     const cart = await swell.cart.get()
     router.push(cart.checkout_url)
   }
