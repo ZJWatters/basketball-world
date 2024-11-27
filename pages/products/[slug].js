@@ -17,16 +17,16 @@ export default function Product({ product }) {
     }
 
     await swell.cart.setItems([]) // Clear existing items
-    // await swell.cart.addItem({
-    //   product_id: productId,
-    //   quantity: 1,
-    //   options: [
-    //     {
-    //       name: 'Size',
-    //       value: selectedSize,
-    //     },
-    //   ],
-    // })
+    await swell.cart.addItem({
+      product_id: productId,
+      quantity: 1,
+      options: [
+        {
+          name: 'Size',
+          value: selectedSize,
+        },
+      ],
+    })
     const cart = await swell.cart.get()
     router.push(cart.checkout_url)
   }
@@ -78,7 +78,7 @@ export default function Product({ product }) {
 
             <button
               className="mt-5 rounded-md border border-transparent bg-orange-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-orange-400 sm:px-8"
-              onClick={() => checkout(product.id)}
+              // onClick={() => checkout(product.id)}
             >
               Checkout
             </button>
