@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
           alt=""
           src={product.images?.[0]?.file?.url || '/placeholder.png'} // Fallback to a placeholder image
           fill
-          style={{ objectFit: 'cover' }} // Replace legacy `objectFit` with `style`
+          style={{ objectFit: 'cover' }}
           className={cn(
             'duration-700 ease-in-out group-hover:opacity-75',
             isLoading

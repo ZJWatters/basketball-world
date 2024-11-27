@@ -2,6 +2,7 @@ import swell from '../../swell'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import BackButton from '../../components/BackButton'
 
 export default function Product({ product }) {
   const router = useRouter()
@@ -32,6 +33,7 @@ export default function Product({ product }) {
 
   return (
     <div className="flex h-screen flex-col justify-between">
+      <BackButton to="/" />
       <div className="mx-auto mt-16 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="mx-auto flex flex-col sm:flex-row">
           <Image
